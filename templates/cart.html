@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Panier</h2>
+    <form method="POST" action="{{ url_for('cart') }}">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Image</th>
+                    <th scope="col">Produit</th>
+                    <th scope="col">Prix</th>
+                    <th scope="col">Quantité</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                    <tr>
+                        <td><img src="{{ url_for('static', filename='images/' + item.product.image_filename) }}" class="card-img-top" alt="{{ item.product.item }}"></td>
+                        <td>{{ item.product.model }}</td>
+                        <td>{{ item.product.price }} €</td>
+                        <td>
+                            <input type="number" name="quantity" value="{{ item.quantity }}" min="1">
+                            <input type="hidden" name="product_id" value="{{ item.product.id }}">
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary">Passer commande</button>
+    </form>
+{% endblock %}

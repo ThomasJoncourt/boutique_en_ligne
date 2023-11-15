@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Boutique en ligne</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <h1>Boutique en ligne</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Prix</th>
+          <th>Quantité</th>
+          <th>Image</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for product in products %}
+          <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.price }}</td>
+            <td>{{ product.quantity }}</td>
+            <td><img src="{{ url_for('static', filename=product.image_filename) }}" alt="{{ product.name }}" width="100"></td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    <h2>Ajouter au panier</h2>
+    <form method="POST" action="{{ url_for('cart') }}">
+      {{ form.hidden_tag() }}
+      <label for="product_id">ID du produit :</label>
+      {{ form.product_id }}
+      <label for="quantity">Quantité :</label>
+      {{ form.quantity }}
+      {{ form.submit }}
+    </form>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+/* Réinitialisation de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* En-tête */
+h1 {
+  padding: 20px;
+  background-color: #333;s
+  color: #fff;
+  text-align: center;
+}
+
+/* Tableau des produits */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 10px;
+  border: 1px solid #ccc;
+}
+
+table th {
+  background-color: #f4f4f4;
+  text-align: left;
+}
+
+table tr:nth-child(even) {
+  background-color: #f4f4f4;
+}
+
+/* Formulaire d'ajout au panier */
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+form label {
+  margin: 0 10px;
+}
+
+form input[type="number"] {
+  width: 50px;
+  margin: 0 10px;
+}
+
+form input[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  margin: 0 10px;
+  border: none;
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+  background-color: #444;
+}
+
+/* Styles existants */
+
+/* Styles pour les images de produit */
+table img {
+  max-width: 100px;
+  height: auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
